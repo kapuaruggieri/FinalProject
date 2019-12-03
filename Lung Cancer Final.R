@@ -14,5 +14,9 @@ dfracemen <- data.frame(race = rep(c("white","black"),each=6),age=rep(agelabels,
 dfracewomen <- data.frame(race = rep(c("white","black"),each=6),age=rep(agelabels,2),rate=c(ratewomenwhite,ratewomenblack))
 dfrace <- data.frame(race = rep(c("white","black"),each=6),age=rep(agelabels,2),rate=c(ratewhite,rateblack))
 
+#Make sure ggplot package is installed and opened
+library(ggplot2)
+
+#Specifying the lines in the graph, with aspects like color coding
 ggplot(data=dfrace, aes(x=age, y=rate, group=race)) + geom_line() + geom_point()
 ggplot(data=dfrace, aes(x=age, y=rate, group=race)) + geom_line(aes(color=race)) + geom_point()
