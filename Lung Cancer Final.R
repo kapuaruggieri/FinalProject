@@ -6,3 +6,13 @@ ratewomenblack <- c(0.002, 0.0064, 0.0283, 0.1841, 0.407, 0.7415)
 ratewhite<- c(0.0021, 0.007, 0.0318, 0.1626, 0.4419, 0.9883)
 ratemenwhite <- c(0.002, 0.0062, 0.0262, 0.141, 0.4322, 0.995)
 ratewomenwhite <- c(0.0022, 0.0079, 0.0375,0.1838, 0.4509, 0.9821)
+
+#Labeling each data frame from which its coming from
+dfgenderblack <- data.frame(gender = rep(c("male","female"),each=6),age = rep(agelabels,2),rate=c(ratemenblack,ratewomenblack))
+dfgenderwhite <- data.frame(gender = rep(c("male","female"),each=6),age = rep(agelabels,2),rate=c(ratemenwhite,ratewomenwhite))
+dfracemen <- data.frame(race = rep(c("white","black"),each=6),age=rep(agelabels,2),rate=c(ratemenwhite,ratemenblack))
+dfracewomen <- data.frame(race = rep(c("white","black"),each=6),age=rep(agelabels,2),rate=c(ratewomenwhite,ratewomenblack))
+dfrace <- data.frame(race = rep(c("white","black"),each=6),age=rep(agelabels,2),rate=c(ratewhite,rateblack))
+
+ggplot(data=dfrace, aes(x=age, y=rate, group=race)) + geom_line() + geom_point()
+ggplot(data=dfrace, aes(x=age, y=rate, group=race)) + geom_line(aes(color=race)) + geom_point()
