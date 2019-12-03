@@ -29,3 +29,9 @@ library(ggplot2)
 #Specifying the lines in the graph, with aspects like color coding
 ggplot(data=dfrace, aes(x=age, y=rate, group=race)) + geom_line() + geom_point()
 ggplot(data=dfrace, aes(x=age, y=rate, group=race)) + geom_line(aes(color=race)) + geom_point()
+
+dfraceplot <- ggplot(data=dfrace, aes(x=age, y=rate, group=race)) + geom_line(aes(color=race)) + geom_point()
+#Adding a title to the plot
+print(dfraceplot + ggtitle("Estimated Prevalance of Black and White \nEthnic Groups per Age Group") + labs(y="Estimated Prevalance Percentages", x = "Age Groups"))
+#the \n makes the title two lines, a wrap of the text
+
